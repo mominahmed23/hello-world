@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "extract-translations": "i18next --fail-on-warnings"
   },
   "dependencies": {
     "i18next": "^20.6.1",

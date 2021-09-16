@@ -9,8 +9,8 @@ export default function Home() {
   };
   return (
     <div className={styles.container}>
-      <h1>{t("hello")}</h1>
-      <h2>{t("bye")}</h2>
+      <h1>{t("welcome")}</h1>
+      <h2>{t("description")}</h2>
       <select onChange={handleChange}>
         <option value="en">english</option>
         <option value="turk">Turkish</option>
