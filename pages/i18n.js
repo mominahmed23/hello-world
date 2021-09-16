@@ -1,10 +1,10 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import Engtrans from "./../public/Locales/EngTrans.json";
+import en from "./../public/Locales/en.json";
 
 const resources = {
   en: {
-    translation: Engtrans,
+    translation: en,
   },
 };
 i18n.use(initReactI18next).init({

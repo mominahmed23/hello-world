@@ -6,6 +6,7 @@ export default function Home() {
   const { t, i18n } = useTranslation();
   const handleChange = (e) => {
     i18n.changeLanguage(e.target.value);
+    console.log(e.target.value);
   };
   return (
     <div className={styles.container}>
