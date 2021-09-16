@@ -1,10 +1,18 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import en from "./../public/Locales/en.json";
+import en from "./../locale/en.json";
+import ar from "./../locale/ar.json";
+import tr from "./../locale/tr.json";
 
 const resources = {
   en: {
     translation: en,
+  },
+  ar: {
+    translation: ar,
+  },
+  tr: {
+    translation: tr,
   },
 };
 i18n.use(initReactI18next).init({

@@ -14,7 +14,8 @@ export default function Home() {
       <h2>{t("description")}</h2>
       <select onChange={handleChange}>
         <option value="en">english</option>
-        <option value="ar">Turkish</option>
+        <option value="tr">Turkish</option>
+        <option value="ar">arabic</option>
       </select>
       <Link href="/blog">
         <a>blog Page</a>
