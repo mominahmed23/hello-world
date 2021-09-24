@@ -19,8 +19,19 @@ fs.readdir(dirPath, function (err, filesPath) {
     //generating paths to file
     return dirPath + filePath;
   });
-  console.log(filesPath);
-  async.eachOf(
+  filesPath.map((item) => {
+    content = fs.readFileSync(item, "utf-8");
+
+    parser
+      .parseFuncFromString(content, customHandler) // pass a custom handler
+      .parseFuncFromString(content, { list: ["t"] }) // override `func.list`
+      .parseFuncFromString(content, { list: ["t"] }, customHandler)
+      .parseFuncFromString(content); // use default options and handler
+
+    console.log("\nreading ", item);
+    console.log("\n", parser.get());
+  });
+  async.map(
     filesPath,
     function (filePath, cb) {
       //reading files or dir
