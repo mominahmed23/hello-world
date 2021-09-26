@@ -19,42 +19,43 @@ fs.readdir(dirPath, function (err, filesPath) {
     //generating paths to file
     return dirPath + filePath;
   });
+  console.log(filesPath);
   filesPath.map((item) => {
-    content = fs.readFileSync(item, "utf-8");
-
+    content = fs.readFileSync("./pages/testing.js", "utf-8");
+    console.log("reading ", item);
     parser
       .parseFuncFromString(content, customHandler) // pass a custom handler
       .parseFuncFromString(content, { list: ["t"] }) // override `func.list`
       .parseFuncFromString(content, { list: ["t"] }, customHandler)
       .parseFuncFromString(content); // use default options and handler
 
-    console.log("\nreading ", item);
+    // console.log("\nreading ", item);
     console.log("\n", parser.get());
   });
-  async.map(
-    filesPath,
-    function (filePath, cb) {
-      //reading files or dir
-      content = fs.readFileSync(filePath, "utf-8", cb);
-      parser
-        .parseFuncFromString(content, customHandler) // pass a custom handler
-        .parseFuncFromString(content, { list: ["t"] }) // override `func.list`
-        .parseFuncFromString(content, { list: ["t"] }, customHandler)
-        .parseFuncFromString(content); // use default options and handler
+  // async.map(
+  //   filesPath,
+  //   function (filePath, cb) {
+  //     //reading files or dir
+  //     content = fs.readFileSync(filePath, "utf-8", cb);
+  //     parser
+  //       .parseFuncFromString(content, customHandler) // pass a custom handler
+  //       .parseFuncFromString(content, { list: ["t"] }) // override `func.list`
+  //       .parseFuncFromString(content, { list: ["t"] }, customHandler)
+  //       .parseFuncFromString(content); // use default options and handler
 
-      console.log("\nreading ", filePath);
-      console.log("\n", parser.get());
-      // var trans = parser.get();
-      // console.log("here", trans);
-      // const { translation } = trans.en;
-      //console.log("\nafter destructuring", translation);
-      // fs.readFile(filePath, 'utf8', cb);
-    },
-    function (err, results) {
-      console.log(results); //this is state when all files are completely read
-      res.send(results); //sending all data to client
-    }
-  );
+  //     console.log("\nreading ", filePath);
+  //     console.log("\n", parser.get());
+  // var trans = parser.get();
+  // console.log("here", trans);
+  // const { translation } = trans.en;
+  //console.log("\nafter destructuring", translation);
+  // fs.readFile(filePath, 'utf8', cb);
+  //   },
+  //   function (err, results) {
+  //     console.log(results); //this is state when all files are completely read
+  //     res.send(results); //sending all data to client
+  //   }
+  // );
 });
 
 // Parse Translation Function
